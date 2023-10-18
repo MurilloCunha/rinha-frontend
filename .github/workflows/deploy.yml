@@ -19,7 +19,7 @@ concurrency:
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: github-pagess
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -35,4 +35,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Setup Pages
-        run: yarn deploy
+        run: 
+          git config --global user.name "deploy"
+          git config --global user.email ""
+          yarn deploy
